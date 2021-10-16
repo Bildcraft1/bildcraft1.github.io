@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>URL Decoder</title>
+    <script type="text/javascript">
+        function encode() {
+            var obj = document.getElementById('dencoder');
+            var unencoded = obj.value;
+            obj.value = encodeURIComponent(unencoded).replace(/'/g, "%27").replace(/"/g, "%22");
+        }
+        function decode() {
+            var obj = document.getElementById('dencoder');
+            var encoded = obj.value;
+            obj.value = decodeURIComponent(encoded.replace(/\+/g, " "));
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <form onsubmit="return false;" class="box">
+                <h1 class="title">URL Decoder/Encoder</h1>
+                <textarea class="textarea is-primary" id="dencoder"></textarea>
+                <div>
+                    <br>
+                    <input class="button is-primary is-light" type="button" onclick="decode()" value="Decode">
+                    <input class="button is-primary is-light" type="button" onclick="encode()" value="Encode">
+                    <br>
+
+                </div>
+            </form>
+            <div class="box">
+                <div class="content">
+                    <h2>Why did i made this?</h2>
+                    <ul>
+                        <li>First for testing out <a href="https://bulma.io">Bulma CSS framework</a>,</li>
+                        <li>I needed a URL Decoder/Encoder for testing some URLs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
